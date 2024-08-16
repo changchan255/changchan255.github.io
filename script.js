@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       let average = sum / bufferLength;
   
-      return average > 60; //
+      return average > 50; //
     }
   
     function blowOutCandles() {
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCandleCount();
         changeMessageToHappyBirthday();
         setTimeout(createHearts, 500); 
+        setTimeout(createHead, 500); 
       }
     }
 
@@ -80,12 +81,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function createHead() {
+      const heartsContainer = document.getElementById('head-container');
+      for (let i = 0; i < 20; i++) {
+          const heart = document.createElement('div');
+          heart.classList.add('head');
+          heart.style.left = `${Math.random() * 100}%`;
+          heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+          heart.style.animationDelay = `${Math.random() * 5}s`;
+          heartsContainer.appendChild(heart);
+      }
+  }
+
     function changeMessageToHappyBirthday() {
         // Giả sử bạn có một khung với class là "happy-birthday-frame" và chứa nội dung cần thay đổi
         const messageFrame = document.querySelector(".happy-birthday-frame");
     
         if (messageFrame) {
-            messageFrame.textContent = "Happy Birthday Nhumngu! Make a wish!";
+            messageFrame.textContent = "Happy 20th Birthday Nhumngu! Make a wish!";
         }
     }
   
